@@ -1,0 +1,43 @@
+server:
+  name: bid-tools-api-server
+  config:
+    jr-api-key: ""
+tools:
+  - name: getBidlist
+    description: 根据关键字查询全网标讯信息。输入关键字，返回查询结果。
+    args:
+      - name: keyword
+        description: 查询关键字
+        type: string
+        required: true
+    requestTemplate:
+      argsToUrlParam: true
+      url: https://agent-bid.jrit.top/sse?jr-api-key={jr-api-key}
+      method: GET
+      headers:
+        - key: jr-api-key
+          value: "{{.config.jr-api-key}}"
+
+  - name: getBidinfo
+    description: 根据标讯 ID 查询标讯详情。输入标讯 ID，返回标讯详情。
+    args:
+      - name: bibId
+        description: 标讯 ID
+        type: string
+        required: true
+    requestTemplate:
+      argsToUrlParam: true
+      url: https://agent-bid.jrit.top/sse?jr-api-key={jr-api-key}
+      method: GET
+      headers:
+        - key: jr-api-key
+          value: "{{.config.jr-api-key}}"
+
+  - name: Email
+    description: 企标匹配邮件通知服务(线下配置)，根据企业的行业、业务范围、关键词群组合为企业专属画像，再结合阿里百炼平台 qwen3 大模型深度思考每日标讯，为企业提供精准的标讯匹配服务。
+    args: []
+    requestTemplate:
+      argsToUrlParam: false
+      url: ""
+      method: ""
+      headers: []
