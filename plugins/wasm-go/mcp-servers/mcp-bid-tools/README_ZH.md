@@ -63,6 +63,6 @@
 ```json
 "mcpServers": {
     "jr-agent-bid": {
-      "url": "https://agent-bid.jrit.top/sse?jr-api-key={jr-api-key}",
+      "url": "https://agent-bid.junrunrenli.com/sse?jr-api-key={jr-api-key}",
     }
 }
